@@ -1,1 +1,0 @@
-coordinate=(10,20)
