@@ -1,0 +1,73 @@
+html{
+    cursor:auto;
+}
+.heeader{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+a{
+    color: black;
+    text-decoration: none;
+    height: 15px;
+}
+a:hover{
+    text-decoration: underline;
+}
+img{
+    height: 220px;
+    width: 340px;
+}
+.ceenter{
+    margin-top: 15px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+}
+.boox{
+    border-radius: 20px;
+    border: 2px solid lightgrey;
+    height: 35px;
+    margin-left: 445px;
+    margin-top: -35px;
+    width: 570px;
+    position: fixed;
+}
+.miclogo{
+    height: 30px;
+    width: 30px;
+    margin-left: 990px;
+    margin-top: -30px;
+    position: absolute;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: -15px;
+    cursor: pointer;
+    
+}
+.searchbutton{
+    border: 1px solid #f8f9fa;
+    height: 40px;
+    width: 125px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    font-family: arial,sans-serif;
+    cursor:pointer;
+
+}
+
+.language{
+    margin-top: 30px;
+    margin-left: 500px;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.language a{
+    color: black;
+}
+
