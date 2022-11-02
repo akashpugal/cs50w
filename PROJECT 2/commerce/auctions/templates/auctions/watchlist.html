@@ -1,0 +1,20 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Watchlist</h2>
+
+    <div class="row mx-3">
+    {% for catalogue in catalogues %}
+    
+    <div class="card mx-3" style="width: 18rem;">
+        <img class="card-img-top" src="{{catalogue.picLink}}" alt="catalogue.headingg" height="300px">
+        <div class="card-body">
+          <h5 class="card-title">{{catalogue.headingg}}</h5>
+          <p class="card-text">{{catalogue.note}}</p>
+          <a href="{% url 'catalogue' id=catalogue.id %}" class="btn btn-primary">See Details</a>
+        </div>
+      </div>
+    
+    {% endfor %}
+    </div>
+{% endblock %}

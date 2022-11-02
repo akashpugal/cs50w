@@ -1,0 +1,87 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <div class="container">
+        {% if message %}
+            {% if update %}
+            <div class="alert alert-success" role="alert">
+                {{message}}
+            </div>
+            {% else %}
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+            {% endif %}
+        {% endif %}
+
+    </div>
+
+
+    {% if not catalogue.isActive and user == catalogue.price.user %}
+    <div class="alert alert-success" role="alert">
+        Congratulations, You won the auction!
+    </div>
+    {% endif %}
+
+    <div class="row mx-3">
+        {% if user.is_authenticated and catalogue.isActive %}
+            {% if isOwner %}
+                <form action="{% url 'closeAuction' id=catalogue.id %}" method="POST" class="mx-3">
+                    {% csrf_token %}
+                    <button type="submit">Close Auction</button>
+                </form>
+            
+            {% endif %}
+            
+            {% if isCatalogueInWatchlist %}
+                <form action="{% url 'removeWatchlist' id=catalogue.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="Submit">Remove from Watchlist</button>
+                </form>
+            {% else %}
+            <form action="{% url 'addWatchlist' id=catalogue.id %}" method="POST">
+                {% csrf_token %}
+                <button type="Submit">Add to Watchlist</button>
+            </form>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <h2>Vehicle : {{catalogue.headingg}}</h2>
+    <img src="{{catalogue.picLink}}" alt="{{catalogue.headingg}}" height="400px">
+    <p>{{catalogue.note}}</p>
+    <p>Owner:{{catalogue.owner}}</p>
+    <h4>₹:{{catalogue.price.bid}}</h4>
+
+    {% if user.is_authenticated %}
+        <form action="{% url 'addBid' id=catalogue.id %}" method="POST">
+            {% csrf_token %}
+            <label for="price">Add Bid</label>
+            <input type="number" name="newBid" min="0" placeholder="Add New Bid" id="">
+            <button type="submit">Add</button>
+        </form>
+
+    
+    {% endif %}
+
+        <h2>Comment</h2><br>
+        {% if user.is_authenticated %}
+            <form action="{% url 'addComment' id=catalogue.id %}" method="POST">
+             {% csrf_token %}    
+            <label for="Price">Add comment</label>
+            <input type="text" name="newComment" placeholder="Add New Comment">
+            <button type="submit">Add</button>    
+            </form>
+        {% endif %}  
+        <br>
+        <ul>
+            {% for comment in allComments %}
+                <li>
+                    {{ comment.message }}
+                    <br><p>Commented by: <b>{{ comment.author }}</b></p>
+                </li>
+            {% endfor %}
+        </ul>
+    
+{% endblock %}
