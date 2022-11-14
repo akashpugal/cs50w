@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>TASKS</title>
+        <script>
+            document.addEventListener('DOMContentLoaded',function(){
+                //the button should be disabled when the page is loaded
+                document.querySelector('#submit').disabled=true;
+                //when any key is pressed on the the input field run this function
+                document.querySelector('#task').onkeyup=function(){
+                    //make the button as enabled if the length of the value in the text input is greater than 0
+                    if(document.querySelector('#task').value.length>0){
+                        document.querySelector('#submit').disabled=false;
+                    }
+                    //if the length of the value in the text input is not greater dhan 0 then again disable it
+                    else{
+                        document.querySelector('#submit').disabled=true;
+                    }
+                    
+                }
+
+
+                //function when the form is submitted
+                document.querySelector('form').onsubmit=function(){
+                    //storing the data the user enter in the text input(id=task) in a variable
+                    let task=document.querySelector('#task').value;
+                    //printing the data in the terminal (not necessary)
+                    console.log(task);
+                    //creating a variable nli which will crate a new list item in the document
+                    let nli=document.createElement('li');
+                    //storing  the text value the user enter in the textbox(id=task) in the variable nli
+                    nli.innerHTML=task;
+                    //selecting the unordered list(id=tasks) and appending the list with the variable nli
+                    document.querySelector('#tasks').append(nli);
+                    //after completing the process the input field should be empty,so setting its value to ''
+                    document.querySelector('#task').value='';
+                    //disbling the submit button after all the process is finished
+                    document.querySelector('#submit').disabled=true;
+                    //every form will go to the next page or refreshes the current page if it is submitted,so to stop that we use
+                    return false;
+                    
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <center>
+            <h1>TASKS</h1>
+            <ul id="tasks">
+
+            </ul>
+            <form>
+                <input type="text" id="task" placeholder="NEW TASK">
+                <input type="submit" id="submit" value="SUBMIT">
+            </form>
+        </center>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>COLORS DROPDOWN</title>
+        <script>
+            //waits untill all contents is loaded
+            document.addEventListener('DOMContentLoaded',function(){
+                //selects the select tag and if any changes happen on the options of that select  tag it executes teh following function
+                document.querySelector('select').onchange=function(){
+                    //selects the h1 tag's color property and change that property value to the value specified in that particular option tag
+                    document.querySelector('h1').style.color=this.value;
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <h1>HELLO</h1>
+        <select>
+            <option value="black">BLACK</option>
+            <option value="red">RED</option>
+            <option value="green">GREEN</option>
+            <option value="blue">BLUE</option>
+        </select>
+    </body>
+</html>

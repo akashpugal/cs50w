@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>COLORS EXAMPLE ALTERNATIVE</title>
+        <script>
+            //Waits untill all the contents are loaded
+            document.addEventListener('DOMContentLoaded', function(){
+                //select all the buutons on the page and creates a functions for each button
+                document.querySelectorAll('button').forEach(function(button){
+                    //trigers the following function when the button is clicked
+                    button.onclick=function(){
+                        //selecting the color property of the h1 and setting it to the color which is present in the data-color property of that specified button
+                        document.querySelector('h1').style.color=button.dataset.color;
+                    }
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <h1>HELLO!</h1>
+        <button data-color="red">RED</button>
+        <button data-color="green">GREEN</button>
+        <button data-color="blue">BLUE</button>
+    </body>
+</html>

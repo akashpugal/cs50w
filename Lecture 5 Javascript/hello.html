@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Hello</title>
+        <script>
+
+        
+        document.addEventListener('DOMContentLoaded',function(){
+            
+            document.querySelector('form').onsubmit=function(){
+                let naame=document.querySelector('#name').value;
+                alert(`Welcome ${naame} `);
+                               
+            }
+        })
+
+        </script>
+    </head>
+    <body>
+        <h1>HELLO</h1>
+        
+        <form>
+            <input type="text" id="name" autofocus>
+            <input type="submit" value="CLICK">
+        </form>
+    </body>
+</html>
