@@ -1,4 +1,4 @@
-## cs50w
+# cs50w
 
 You can find all the example codes and projects for HARVARD's "CS50's Web Programming with Python and JavaScript" course
 
